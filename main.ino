@@ -151,19 +151,19 @@ if ( ! mfrc522.PICC_IsNewCardPresent()) {
   lcd.print("WELCOME BACK ");
   lcd.setCursor(0, 1);
   lcd.print(name);
-  song();
+  song(); // play the song
   delay(8000);
   }
 }
 
 void song()
 {
-  int songLen = sizeof(notes);
+  int songLen = sizeof(notes); // get the length of the song
   songLen = songLen/2;
-  for (int i = 0;i<songLen; i=i+1){
+  for (int i = 0;i<songLen; i=i+1){ // until i gets to the length of the song
     Serial.println(notes[i]);
-    float pause = delays[i] * 1.2;
-    tone(7, notes[i], delays[i]);
-    delay(pause);
+    float pause = delays[i] * 1.2; // create the delay to be 1.2 times what it is in the array
+    tone(7, notes[i], delays[i]); // play the note
+    delay(pause); // pause for this amount of time
 }
 }
